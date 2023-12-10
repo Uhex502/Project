@@ -1,0 +1,66 @@
+GET http://localhost:3001/devices
+
+###
+
+POST http://localhost:3001/device
+Content-Type: application/json
+
+{
+    "deviceId": "TestDeviceID-4",
+    "deviceType": "Laptop",
+    "location": "Office",
+    "status": "true",
+    "liveConsumption": "32",
+    "cumulativeConsumption": "256"
+}
+
+###
+
+DELETE http://localhost:3001/device/delete/bat
+
+###
+
+PUT http://localhost:3001/device/update/TestDeviceID-4
+Content-Type: application/json
+
+{
+    "deviceId": "TestDeviceID-3"
+}
+
+###
+
+PUT http://localhost:3001/flip-status/656d735fc3046a9a0a3e29c0
+
+###
+
+POST http://localhost:3001/device
+Content-Type: application/json
+
+{
+    "deviceId": "TestDeviceID-3",
+    "deviceType": "HairDrier",
+    "location": "Bedroom",
+    "status": "true",
+    "liveConsumption": "50",
+    "cumulativeConsumption": "110",
+    "fireSignal": "false"
+}
+
+###
+
+POST http://localhost:3001/newbudget
+Content-Type: application/json
+
+{
+    "budget": "989"
+}
+
+###
+
+GET http://localhost:3001/budget
+
+###
+
+DELETE http://localhost:3001/deletebudget
+
+###

@@ -1,0 +1,129 @@
+:root {
+  --primary: #d81e5b;
+  --secondary: #8a4efc;
+  --light: #eee;
+  --light-alt: #61759b;
+  --dark: #131a26;
+  --dark-alt: #202b3e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.dashboard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.device {
+  position: relative;
+  background-color: var(--dark);
+  width: 500px;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 16px;
+  border: 1px solid var(--light-alt);
+}
+
+.device:hover {
+  opacity: 0.8;
+}
+
+.device-summary, .device-details {
+  padding: 10px;
+  width: 100%;
+  font-weight: bold; /* Make text bold */
+}
+
+.device-details {
+  text-align: center;
+}
+
+.total-consumption {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: var(--light-alt);
+  color: var(--dark);
+  font-weight: bold;
+  width: fit-content;
+  align-self: center;
+}
+
+.status-slider {
+  width: 40px;
+  height: 20px;
+  background-color: var(--dark-alt);
+  border-radius: 10px;
+  margin: 10px auto; /* Center the slider */
+  position: relative;
+  cursor: pointer;
+}
+
+.status-slider.on {
+  background-color: green;
+}
+
+.status-slider.off {
+  background-color: red;
+}
+
+.slider-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--light);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.status-slider.on .slider-thumb {
+  left: 22px;
+}
+
+/* Styles for the new device form */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--dark-alt);
+}
+
+form button {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: var(--light);
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--secondary);
+}
+
+h4 {
+  font-weight: 700;
+}
