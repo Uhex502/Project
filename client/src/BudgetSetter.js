@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './BudgetSetter.css';
 
-const API_BASE = "http://localhost:3001";
+const API_BASE = "http://ec2-157-175-156-138.me-south-1.compute.amazonaws.com:3001";
 
 function BudgetSetter() {
   const [budget, setBudget] = useState('');
