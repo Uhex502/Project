@@ -3,7 +3,7 @@ import './Dashboard.css';
 import axios from 'axios';
 import DeviceComponent from './DeviceComponent';
 
-const API_BASE = "http://localhost:3001";
+const API_BASE = "http://ec2-157-175-156-138.me-south-1.compute.amazonaws.com:3001";
 
 function Dashboard() {
     const [devices, setDevices] = useState([]);
