@@ -3,7 +3,7 @@ import './Scheduler.css';
 import axios from 'axios';
 import ScheduleComponent from './ScheduleComponent';
 
-const API_BASE = "http://localhost:3001";
+const API_BASE = "http://ec2-157-175-156-138.me-south-1.compute.amazonaws.com:3001";
 
 function Scheduler() {
     const [schedule, setSchedule] = useState({ startTime: '', endTime: '', deviceId: '' });
