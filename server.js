@@ -71,6 +71,7 @@ mqttClient.on('error', function (error) {
 mqttClient.on('message', async (topic, message) => {
     try {
         console.log(`Received message from topic: ${topic}`);
+		console.log(message.toString());
         let deviceId = topic.split('/')[1];
         let deviceData = JSON.parse(message.toString());
 
@@ -79,7 +80,7 @@ mqttClient.on('message', async (topic, message) => {
 			const updatedDevice = await Device.findOneAndUpdate(
 				{ deviceId: deviceId },
 				{
-					status: deviceData.St,
+					status: deviceData.St ? 1 : 0,
 					liveConsumption: deviceData.P,
 					cumulativeConsumption: deviceData.E,
 					fireSignal: deviceData.FS ? 1 : 0,
@@ -98,7 +99,7 @@ mqttClient.on('message', async (topic, message) => {
 			const updatedDevice = await Device.findOneAndUpdate(
 				{ deviceId: deviceId },
 				{
-					deviceType: deviceData.type
+					deviceType: deviceData.deviceType
 				},
 				{ new: true }
 			);
@@ -167,7 +168,6 @@ app.put('/flip-status/:id', async (req, res) => {
         if (!device) {
             return res.status(404).send('Device not found');
         }
-
         // Flip the status
         device.status = !device.status;
         await device.save();
@@ -178,7 +178,6 @@ app.put('/flip-status/:id', async (req, res) => {
 		} else if (!device.status) {
 			digitalStatus = 0
 		}
-
         // Publish the updated status
         const message = JSON.stringify({ St: digitalStatus});
         mqttClient.publish("devicecontrol/" + device.deviceId, message);
