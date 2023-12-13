@@ -24,8 +24,7 @@ function DeviceComponent({ device, flipStatus }) {
                     {/* Detailed information */}
                     <div className="Device Id">Device ID: {device.deviceId}</div>
                     <div className="Status">Status: {device.status ? "On" : "Off"}</div>
-                    <div className="Live Consumption in kWh">Live Consumption in kWh: {device.liveConsumption}</div>
-                    <div className="Live Consumption in SAR">Live Consumption in SAR: {device.liveConsumption * 0.18}</div>
+                    <div className="Live Consumption in kWh">Live Consumption in Watts: {device.liveConsumption}</div>
                     <div className="Cumulative Consumption in kWh">Cumulative Consumption in kWh: {device.cumulativeConsumption}</div>
                     <div className="Cumulative Consumption in SAR">Cumulative Consumption in SAR: {device.cumulativeConsumption * 0.18}</div>
                     <div className={`status-slider ${device.status ? 'on' : 'off'}`} onClick={handleStatusFlip}>
