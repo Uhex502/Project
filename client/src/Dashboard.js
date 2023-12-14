@@ -12,7 +12,7 @@ function Dashboard() {
     const [newDevice, setNewDevice] = useState({ deviceId: '', deviceType: '', location: '' });
 
     useEffect(() => {
-        const ws = new WebSocket('ws://localhost:3001');
+        const ws = new WebSocket('ws://ec2-157-175-156-138.me-south-1.compute.amazonaws.com:3001');
         
         ws.onopen = () => {
             console.log('WebSocket Connected');
