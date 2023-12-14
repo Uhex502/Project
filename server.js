@@ -6,8 +6,9 @@ const Device = require('./models/Device');
 const Budget = require('./models/Budget');
 const Schedule = require('./models/Schedule');
 const WebSocket = require('ws');
+const path = require('path');
+
 //const cron = require('node-cron');
-//const path = require('path');
 //const Schedule = require('./models/Schedule');
 
 
@@ -18,6 +19,11 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+});
 
 /*const buildPath = path.join(__dirname, 'client', 'build');
 app.use(express.static(buildPath));
