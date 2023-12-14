@@ -19,11 +19,6 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-});
 
 /*const buildPath = path.join(__dirname, 'client', 'build');
 app.use(express.static(buildPath));
@@ -302,6 +297,13 @@ cron.schedule('* * * * *', () => {
     checkSchedulesAndUpdateDevices();
 });
 */
+
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+});
+
 // Start the server
 const port = 3001;
 const server = app.listen(port, () => console.log(`Server running on port ${port}`));
