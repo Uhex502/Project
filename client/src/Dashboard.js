@@ -116,7 +116,7 @@ function Dashboard() {
             <div className='total-consumption'>
                 Total Consumption: {totalConsumption} SAR
             </div>
-            {devices.map(device => (
+            {Array.isArray(devices) && devices.map(device => (
                 <DeviceComponent key={device._id} device={device} flipStatus={flipStatus} />
             ))}
         </div>
